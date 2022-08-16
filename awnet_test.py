@@ -18,7 +18,9 @@ warnings.filterwarnings('ignore')
 # network
 awnet = AWnet.pwc_residual().cuda()
 # load model
-awnet.load_state_dict(torch.load('bicubic_4x_nonoise.pkl'))
+awnet.load_state_dict(torch.load(
+    os.path.join(os.path.dirname(__file__),
+                 'bicubic_4x_nonoise.pkl')))
 
 def test(ref,sr,result):
     # load image
